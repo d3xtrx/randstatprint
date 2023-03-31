@@ -4,7 +4,7 @@ from scp import SCPClient
 from time import sleep
 from os import system
 
-server="192.168.1.181"
+server=""
 sleeptimer = 15 
 while True:
     #run llama.cpp and stdout to file
@@ -16,10 +16,10 @@ while True:
     print("uploading file")
     ssh = SSHClient()
     ssh.load_system_host_keys()
-    ssh.connect(server, username="pi", password="pi")
+    ssh.connect(server, username="", password="")
     # SCPCLient takes a paramiko transport as an argument
     scp = SCPClient(ssh.get_transport())
-    scp.put('output', remote_path="/home/pi/")
+    scp.put('output', remote_path="/your/path/")
     scp.close()
     print("file uploaded")
 
